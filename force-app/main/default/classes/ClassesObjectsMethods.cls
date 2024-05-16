@@ -117,16 +117,18 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Integer countVowels(String str) {
         // Initialize the result Integer
-
-        /*
-        for () {
-            // get individual characters from the string - hint use substring or split
+        Integer result = 0;
+        List<String> strList = str.split('');        
+        
+        for (String currentStr : strList){
+             // get individual characters from the string - hint use substring or split
             // check if the character is a vowel
             // if it is a vowel, increment the result Integer
-        }
-        */
-
-        return null; // Replace null with the variable you used to store the result
+            if(currentStr == 'a' || currentStr == 'e' || currentStr == 'i' || currentStr == 'o' || currentStr == 'u'){
+                result++;
+            }
+        } 
+        return result; // Replace null with the variable you used to store the result
     }
 
     /**
