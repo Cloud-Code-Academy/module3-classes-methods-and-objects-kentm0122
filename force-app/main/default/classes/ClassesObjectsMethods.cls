@@ -143,16 +143,20 @@ public with sharing class ClassesObjectsMethods {
         List<String> scientistNames = new List<String>{'Tim Berners-Lee', 'Alan Turing', 'Grace Hopper', 'Donald Knuth', 'Guido van Rossum', 'Ken Thompson', 'Stephen Hawking'};
 
         // The variable to store the concatenated string
-
+        String concatNames = '';
         // Loop through the list of scientists' names
-
+        for (String currName : scientistNames){
             // If the name doesn't contain the letter 'G', skip this iteration
-
-            // Add the name to the result string, followed by a comma
-
+            if(!currName.containsIgnoreCase('G')){
+                continue;
+            } else {
+                // Add the name to the result string, followed by a comma
+                concatNames += currName + ',';
+            }
+        }
         // Remove the last comma from the result string
-
-        return null; // Replace null with the variable you used to store the result
+        concatNames = concatNames.removeEnd(',');
+        return concatNames; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -165,11 +169,12 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Double calculateDifferenceOfSquares(Double a, Double b) {
         // Square the input numbers using the Math.pow() function
-
+        Double aSquared = math.pow(a,2);
+        Double bSquared = math.pow(b,2);
         // Calculate the absolute difference using Math.abs() function
-
+        Double difference = math.abs(aSquared) - math.abs(bSquared);
         // Return the result
-        return null; // Replace null with the variable you used to store the result
+        return difference; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -180,9 +185,9 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Integer generateRandomNumber() {
         // Use Math class to generate number between 50 and 100
-
+        Integer randumNumber = (Integer)(math.random() * 100);
         // Return the random integer
-        return null; // Replace null with the variable you used to store the result
+        return randumNumber; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -193,11 +198,11 @@ public with sharing class ClassesObjectsMethods {
      */
     public static String getCurrentDate() {
         // Get the todays date
-
+        Date currDate = Date.today();
         // Format the current date
-
+        String formatDate = currDate.format();
         // Return the result
-        return null; // Replace null with the variable you used to store the result
+        return formatDate; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -207,15 +212,24 @@ public with sharing class ClassesObjectsMethods {
      * @return The number of the day of the week for the given date.
      */
     public static String getDayOfWeek(DateTime dt) {
+         // Get the day name using .format('EEEE');
+        String weekDay = dt.format('EEEE');
         // Define a map of day of the week as a key and day number as the value
+        Map<String,Integer> weekMap = new Map<String,Integer>();
         // Monday = 1, Tuesday = 2, etc.
-
-        // Get the day name using .format('EEEE');
-
+        weekMap.put('Monday', 1);
+        weekMap.put('Tuesday', 2);
+        weekMap.put('Wednesday', 3);
+        weekMap.put('Thursday', 4);
+        weekMap.put('Friday', 5);
+        weekMap.put('Saturday', 6);
+        weekMap.put('Sunday', 7);
+       
         // Get the day number from the map using the day name
-
+        Integer dayOfWeek = weekMap.get(weekDay);
         // Return the result as a string
-        return null; // Replace null with the variable you used to store the result
+        String dayOfWeekString = String.valueOf(dayOfWeek);
+        return dayOfWeekString; // Replace null with the variable you used to store the result
     }
 
 
@@ -229,10 +243,15 @@ public with sharing class ClassesObjectsMethods {
      * @return The a positive number years between the two dates, or null if either date is null.
      */
     public static Integer calculateYearDifference(Date d1, Date d2) {
-
-        // Subtract the difference in years
-
-        return null; // Replace null with the variable you used to store the result
+    Integer years;
+    if(d1 == null || d2 == null){
+        return null;
+    } Else {
+             // Subtract the difference in years
+             years = d1.year() - d2.year();
+             
+    } Integer difference = math.abs(years);
+       return difference; // Replace null with the variable you used to store the result
     }
 
     /**
