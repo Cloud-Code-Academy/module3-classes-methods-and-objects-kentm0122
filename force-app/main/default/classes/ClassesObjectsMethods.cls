@@ -405,9 +405,9 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Person createPerson(String name, Integer age) {
         // Create a new instance of the Person class using the provided name and age
-        
+        Person newPerson = new Person(name, age);
         // Return the new instance of the Person class
-        return null; // Replace null with the variable you used to store the result
+        return newPerson; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -420,15 +420,17 @@ public with sharing class ClassesObjectsMethods {
      * @return A list of new Person objects.
      */
     public static List<Person> createMultiplePersons(List<String> names, Integer age) {
-
+        List<Person> resultList = new List<Person>();
         // Loop through each name in the provided list of names
+        for(String currName : names){
             // Create a new Person object for each name
-            
+            Person newPerson = new Person(currName, age);
             // Add the new Person object to the list of Person objects
+            resultList.add(newPerson);
+            
+        } return resultList; // Replace null with the variable you used to store the result
+            
         
-        
-        // Return the list of Person objects
-        return null; // Replace null with the variable you used to store the result
     }
 
 
@@ -443,6 +445,13 @@ public with sharing class ClassesObjectsMethods {
      * @return The Person object of the older person.
      */
     public static Person getOlderPerson(Person person1, Person person2) {
-        return null; // Replace null with the variable you used to store the result
+        if(person1.age > person2.age){
+            return person1;
+        }else if(person1.age < person2.age) {
+            return person2;
+        } else {
+            return person1;
+        }
+        
     }
 }
