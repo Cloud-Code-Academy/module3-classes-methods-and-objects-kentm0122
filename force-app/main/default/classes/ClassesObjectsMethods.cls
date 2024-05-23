@@ -43,8 +43,7 @@ public with sharing class ClassesObjectsMethods {
         String hello = 'Hello, Salesforce!';
         
         // Get the length of the String     
-        Integer length = hello.length();
-        String lengthString = String.valueOf(length);
+        String lengthString = String.valueOf(hello.length());
         // Get a substring of the String of the first 5 characters
         String subString = hello.substring(0,5);
         // Convert the String to lower case
@@ -125,7 +124,7 @@ public with sharing class ClassesObjectsMethods {
             // check if the character is a vowel
             // if it is a vowel, increment the result Integer
             if(currentStr == 'a' || currentStr == 'e' || currentStr == 'i' || currentStr == 'o' || currentStr == 'u'){
-                result++;
+               result++;
             }
         } 
         return result; // Replace null with the variable you used to store the result
